@@ -1,3 +1,3 @@
 # Java-Basics
-The Student Management System is a Java-based console application that demonstrates fundamental Java programming and Object-Oriented Programming (OOP) concepts. The project allows users to enter, store, and display student information while utilizing arrays, loops, conditional statements, inheritance, polymorphism, and encapsulation.
+This repository contains a Java Object-Oriented Programming (OOP) demonstration project that showcases fundamental Java concepts and programming principles. The project includes arrays, loops, conditional statements, classes, objects, inheritance, polymorphism, and encapsulation using getters and setters. It provides practical examples of creating and managing objects while illustrating how OOP concepts are applied in Java applications.
 <img width="1604" height="1020" alt="Screenshot 2026-06-17 132622" src="https://github.com/user-attachments/assets/59979fd7-3eb0-426d-b4bd-5cc242a6113b" />
