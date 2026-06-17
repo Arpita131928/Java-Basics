@@ -1,61 +1,101 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-
-// Custom Exception Class
-class StudentNotFoundException extends Exception {
-    public StudentNotFoundException(String message) {
-        super(message);
-    }
-}
-
-public class StudentManagement {
+public class OOPDemo {
 
     public static void main(String[] args) {
 
-        try {
-            // ArrayList
-            ArrayList<String> students = new ArrayList<>();
-            students.add("Arpita");
-            students.add("Rahul");
-            students.add("Priya");
+        // Array
+        int[] marks = {85, 72, 90, 65, 78};
 
-            // HashMap
-            HashMap<Integer, String> studentMap = new HashMap<>();
-            studentMap.put(101, "Arpita");
-            studentMap.put(102, "Rahul");
-            studentMap.put(103, "Priya");
+        System.out.println("Student Marks:");
 
-            // HashSet
-            HashSet<String> courses = new HashSet<>();
-            courses.add("Java");
-            courses.add("Python");
-            courses.add("HTML");
-
-            System.out.println("Student List:");
-            for (String student : students) {
-                System.out.println(student);
+        // Loop and Condition
+        for (int mark : marks) {
+            if (mark >= 75) {
+                System.out.println(mark + " - Pass");
+            } else {
+                System.out.println(mark + " - Fail");
             }
-
-            // Search for a student ID
-            int searchId = 105;
-
-            if (!studentMap.containsKey(searchId)) {
-                throw new StudentNotFoundException(
-                    "Student ID " + searchId + " not found!"
-                );
-            }
-
-            System.out.println("Student Name: " + studentMap.get(searchId));
-
-        } catch (StudentNotFoundException e) {
-            System.out.println("Custom Exception Caught: " + e.getMessage());
-
-        } catch (Exception e) {
-            System.out.println("General Exception: " + e.getMessage());
-
-        } finally {
-            System.out.println("Program execution completed.");
         }
+
+        // Creating objects
+        Student student1 = new Student("John", 20, "Computer Science");
+        Student student2 = new Student("Emma", 21, "Information Technology");
+
+        // Using setters (Encapsulation)
+        student1.setAge(22);
+
+        System.out.println("\nStudent Details:");
+        student1.displayInfo();
+        System.out.println();
+
+        student2.displayInfo();
+
+        // Polymorphism
+        System.out.println("\nPolymorphism Example:");
+        Person person = new Student("David", 19, "Software Engineering");
+        person.displayInfo();
+    }
+}
+
+// Parent Class
+class Person {
+
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        }
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Child Class (Inheritance)
+class Student extends Person {
+
+    private String course;
+
+    public Student(String name, int age, String course) {
+        super(name, age);
+        this.course = course;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    // Method Overriding (Polymorphism)
+    @Override
+    public void displayInfo() {
+        System.out.println("Name: " + getName());
+        System.out.println("Age: " + getAge());
+        System.out.println("Course: " + course);
     }
 }
